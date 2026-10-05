@@ -1,0 +1,41 @@
+songs = [
+    [60, 5, 0],    # Classical
+    [70, 6, 0],    # Classical
+    [140, 9, 1],   # Rock
+    [150, 10, 1],  # Rock
+    [90, 8, 2],    # Hip-Hop
+    [100, 9, 2],   # Hip-Hop
+    [110, 7, 3],   # Pop
+    [120, 8, 3]    # Pop
+]
+genres = [
+    "Classical", "Classical",
+    "Rock", "Rock",
+    "Hip-Hop", "Hip-Hop",
+    "Pop", "Pop"
+]
+new_song = [145, 9, 1]
+best_distance = float("inf")
+best_genre = ""
+for i in range(len(songs)):
+    distance = 0
+    for j in range(3):
+        distance += (new_song[j] - songs[i][j]) ** 2
+    if distance < best_distance:
+        best_distance = distance
+        best_genre = genres[i]
+print("Music Genre Classification")
+print("--------------------------")
+print("Tempo:", new_song[0])
+print("Energy:", new_song[1])
+print("Rhythm:", new_song[2])
+print("Predicted Genre:", best_genre)
+
+
+OUTPUT:
+Music Genre Classification
+--------------------------
+Tempo: 145
+Energy: 9
+Rhythm: 1
+Predicted Genre: Rock
